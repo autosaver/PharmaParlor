@@ -6,6 +6,42 @@ from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 
 # Create your views here.
-def index(request):
+def home(request):
 
-    return render(request, 'index.html')
+    return render(request, 'home.html')
+
+def about_us(request):
+
+    return render(request, 'about_us.html')
+
+def blog(request):
+
+    return render(request, 'blog.html')
+
+def cart(request):
+
+    return render(request, 'cart.html')
+
+def checkout(request):
+
+    return render(request, 'checkout.html')
+
+def contact(request):
+
+    return render(request, 'contact.html')
+
+def login_register(request):
+
+    return render(request, 'login_register.html')
+
+def my_account(request):
+
+    return render(request, 'my_account.html')
+
+def shop(request):
+
+    return render(request, 'shop.html')
+
+def wishlist(request):
+
+    return render(request, 'wishlist.html')
