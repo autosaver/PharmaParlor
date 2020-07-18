@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="logo">
-                        <a href="index.html">
+                        <a href="/">
                             <img alt="" src="{% static 'img/logo/logo.png' %}">
                         </a>
                     </div>
@@ -16,71 +16,80 @@
                         <div class="main-menu">
                             <nav>
                                 <ul>
-                                    <li class="top-hover"><a href="index.html">home</a>
+                                    <li class="top-hover"><a href="/">home</a>
                                     </li>
-                                    <li><a href="about-us.html">about</a></li>
-                                    <li class="mega-menu-position top-hover"><a href="shop.html">shop</a>
+                                    <li><a href="{% url 'about_us' %}">about</a></li>
+                                    <li class="mega-menu-position top-hover"><a href="{% url 'shop' %}">shop</a>
                                         <ul class="mega-menu">
                                             <li>
                                                 <ul>
-                                                    <li class="mega-menu-title">Categories 01</li>
-                                                    <li><a href="shop.html">Producta1</a></li>
-                                                    <li><a href="shop.html">producta2</a></li>
-                                                    <li><a href="shop.html">Producta3</a></li>
-                                                    <li><a href="shop.html">Producta4</a></li>
-                                                    <li><a href="shop.html">Producta5</a></li>
-                                                    <li><a href="shop.html">Producta6</a></li>
+                                                    <li class="mega-menu-title">Health and Wellness</li>
+                                                    <li><a href="{% url 'shop' %}">Producta1</a></li>
+                                                    <li><a href="{% url 'shop' %}">producta2</a></li>
+                                                    <li><a href="{% url 'shop' %}">Producta3</a></li>
+                                                    <li><a href="{% url 'shop' %}">Producta4</a></li>
+                                                    <li><a href="{% url 'shop' %}">Producta5</a></li>
+                                                    <li><a href="{% url 'shop' %}">Producta6</a></li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 <ul>
                                                     <li class="mega-menu-title">Categories 02</li>
-                                                    <li><a href="shop.html">Productb1</a></li>
-                                                    <li><a href="shop.html">Productb2</a></li>
-                                                    <li><a href="shop.html">Productb3</a></li>
-                                                    <li><a href="shop.html">Productb4</a></li>
-                                                    <li><a href="shop.html">Productb5</a></li>
-                                                    <li><a href="shop.html">Productb6</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb1</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb2</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb3</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb4</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb5</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productb6</a></li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 <ul>
                                                     <li class="mega-menu-title">Categories 03</li>
-                                                    <li><a href="shop.html">Productc1</a></li>
-                                                    <li><a href="shop.html">Productc2</a></li>
-                                                    <li><a href="shop.html">Productc3</a></li>
-                                                    <li><a href="shop.html">Productc4</a></li>
-                                                    <li><a href="shop.html">Productc5</a></li>
-                                                    <li><a href="shop.html">Productc6</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc1</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc2</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc3</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc4</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc5</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productc6</a></li>
                                                 </ul>
                                             </li>
                                             <li>
                                                 <ul>
                                                     <li class="mega-menu-title">Categories 04</li>
-                                                    <li><a href="shop.html">Productd1</a></li>
-                                                    <li><a href="shop.html">Productd2</a></li>
-                                                    <li><a href="shop.html">Productd3</a></li>
-                                                    <li><a href="shop.html">Productd4</a></li>
-                                                    <li><a href="shop.html">Productd5</a></li>
-                                                    <li><a href="shop.html">Productd6</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd6</a></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <ul>
+                                                    <li class="mega-menu-title">Categories 04</li>
+                                                    <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                                    <li><a href="{% url 'shop' %}">Productd6</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
-                                    <li class="top-hover"><a href="blog.html">blog</a>
+                                    <li class="top-hover"><a href="{% url 'blog' %}">blog</a>
                                     </li>
                                     <li class="top-hover"><a href="#">pages</a>
                                         <ul class="submenu">
-                                            <li><a href="about-us.html">about us </a></li>
-                                            <li><a href="shop.html">shop</a></li>
-                                            <li><a href="cart-page.html">cart page</a></li>
-                                            <li><a href="checkout.html">checkout</a></li>
-                                            <li><a href="wishlist.html">wishlist</a></li>
-                                            <li><a href="login-register.html">login / register</a></li>
-                                            <li><a href="contact.html">contact</a></li>
+                                            <li><a href="{% url 'my_account' %}">My Account</a></li>
+                                            <li><a href="{% url 'cart' %}">cart page</a></li>
+                                            <li><a href="{% url 'checkout' %}">checkout</a></li>
+                                            <li><a href="{% url 'wishlist' %}">wishlist</a></li>
+                                            <li><a href="{% url 'login_register' %}">login / register</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="{% url 'contact' %}">contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -90,7 +99,7 @@
                         </div>
                         <!--Cart-->
                         <div class="header-cart">
-                            <a href="cart-page.html">
+                            <a href="{% url 'cart' %}">
                                 <div class="cart-icon">
                                     <i class="fa fa-shopping-cart"></i>
                                 </div>
@@ -135,8 +144,8 @@
                       <h4>Total : <span class="shop-total">$260.00</span></h4>
                     </div>
                     <div class="shopping-cart-btn">
-                      <a href="cart-page.html">view cart</a>
-                      <a href="checkout.html">checkout</a>
+                      <a href="{% url 'cart' %}">view cart</a>
+                      <a href="{% url 'checkout' %}">checkout</a>
                     </div>
                   </div>-->
                         </div>
@@ -152,62 +161,70 @@
                             </li>
                             <li><a href="#">pages</a>
                                 <ul>
-                                    <li><a href="about-us.html">about us </a></li>
-                                    <li><a href="shop.html">shop</a></li>
-                                    <li><a href="cart-page.html">cart page</a></li>
-                                    <li><a href="checkout.html">checkout</a></li>
-                                    <li><a href="wishlist.html">wishlist</a></li>
-                                    <li><a href="login-register.html">login / register</a></li>
-                                    <li><a href="contact.html">contact</a></li>
+                                    <li><a href="{% url 'my_account' %}">My Account</a></li>
+                                    <li><a href="{% url 'cart' %}">cart page</a></li>
+                                    <li><a href="{% url 'checkout' %}">checkout</a></li>
+                                    <li><a href="{% url 'wishlist' %}">wishlist</a></li>
+                                    <li><a href="{% url 'login_register' %}">login / register</a></li>
                                 </ul>
                             </li>
-                            <li><a href="shop.html"> Shop </a>
+                            <li><a href="{% url 'shop' %}"> Shop </a>
                                 <ul>
-                                    <li><a href="#">Categories 01</a>
+                                    <li><a href="#">Health and Wellness</a>
                                         <ul>
-                                            <li><a href="shop.html">Producta1</a></li>
-                                            <li><a href="shop.html">producta2</a></li>
-                                            <li><a href="shop.html">Producta3</a></li>
-                                            <li><a href="shop.html">Producta4</a></li>
-                                            <li><a href="shop.html">Producta5</a></li>
-                                            <li><a href="shop.html">Producta6</a></li>
+                                            <li><a href="{% url 'shop' %}">Aromatherapy</a></li>
+                                            <li><a href="{% url 'shop' %}">producta2</a></li>
+                                            <li><a href="{% url 'shop' %}">Producta3</a></li>
+                                            <li><a href="{% url 'shop' %}">Producta4</a></li>
+                                            <li><a href="{% url 'shop' %}">Producta5</a></li>
+                                            <li><a href="{% url 'shop' %}">Producta6</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Categories 02</a>
+                                    <li><a href="#">Personal Care</a>
                                         <ul>
-                                            <li><a href="shop.html">Productb1</a></li>
-                                            <li><a href="shop.html">Productb2</a></li>
-                                            <li><a href="shop.html">Productb3</a></li>
-                                            <li><a href="shop.html">Productb4</a></li>
-                                            <li><a href="shop.html">Productb5</a></li>
-                                            <li><a href="shop.html">Productb6</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb1</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb2</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb3</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb4</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb5</a></li>
+                                            <li><a href="{% url 'shop' %}">Productb6</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Categories 03</a>
+                                    <li><a href="#">Pharmacy Only</a>
                                         <ul>
-                                            <li><a href="shop.html">Productc1</a></li>
-                                            <li><a href="shop.html">Productc2</a></li>
-                                            <li><a href="shop.html">Productc3</a></li>
-                                            <li><a href="shop.html">Productc4</a></li>
-                                            <li><a href="shop.html">Productc5</a></li>
-                                            <li><a href="shop.html">Productc6</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc1</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc2</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc3</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc4</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc5</a></li>
+                                            <li><a href="{% url 'shop' %}">Productc6</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="#">Categories 04</a>
+                                    <li><a href="#">Prescription</a>
                                         <ul>
-                                            <li><a href="shop.html">Productd1</a></li>
-                                            <li><a href="shop.html">Productd2</a></li>
-                                            <li><a href="shop.html">Productd3</a></li>
-                                            <li><a href="shop.html">Productd4</a></li>
-                                            <li><a href="shop.html">Productd5</a></li>
-                                            <li><a href="shop.html">Productd6</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd6</a></li>
+                                        </ul>
+                                    </li>
+                                    <li><a href="#">Medical Devices</a>
+                                        <ul>
+                                            <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                            <li><a href="{% url 'shop' %}">Productd6</a></li>
                                         </ul>
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="blog.html">BLOG</a>
+                            <li><a href="{% url 'blog' %}">BLOG</a>
                             </li>
-                            <li><a href="contact.html"> Contact us </a></li>
+                            <li><a href="{% url 'contact' %}"> Contact us </a></li>
                         </ul>
                     </nav>
                 </div>
