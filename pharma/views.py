@@ -29,8 +29,6 @@ def register(request):
     return render(request, 'auth/register.html', {'form':form})
 
 
-
-
 def home(request):
 
     return render(request, 'home.html')
