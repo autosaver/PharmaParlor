@@ -10,7 +10,7 @@ class Profile(models.Model):
     name = models.CharField(blank=True, max_length=120)
     location = models.CharField(max_length=60, blank=True)
     email = models.EmailField(max_length=100, blank=True)
-    phone = models.IntegerField(max_length=100, blank=True)
+    phone = models.IntegerField(blank=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'
@@ -48,13 +48,17 @@ class Product(models.Model):
     name = models.CharField(max_length=250, blank=True)
     subsubcategory = models.ForeignKey(SubSubCategory, on_delete=models.CASCADE, related_name='product')
     description = models.CharField(max_length=250, blank=True)
-    price = models.IntegerField(max_length=250, blank=True)
-    discountedprice = models.IntegerField(max_length=250, blank=True)
-    stock = models.IntegerField(max_length=250, blank=True)
+    price = models.IntegerField(blank=True)
+    discountedprice = models.IntegerField(blank=True)
+    stock = models.IntegerField( blank=True)
     image = models.ImageField(upload_to='products/', blank=True, default='default.png')
 
     def __str__(self):
         return self.name
+
+    @classmethod
+    def search_product(cls, name):
+        return cls.objects.filter(name__icontains=name).all()
 
 class Order(models.Model):
     pass
@@ -69,7 +73,18 @@ class OrderItem(models.Model):
         return self.name
 
 class Rating(models.Model):
-    pass
+    rating = ((1, '1'),(2, '2'),(3, '3'),(4, '4'),(5, '5'),(6, '6'),(7, '7'),(8, '8'),(9, '9'),(10, '10'),)
+    score = models.FloatField(choices=rating, default=0, blank=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='rater')
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='ratings', null=True)
+
+    def save_rating(self):
+        self.save()
+
+    @classmethod
+    def get_ratings(cls, id):
+        ratings = Rating.objects.filter(product_id=id).all()
+        return ratings
 
     def __str__(self):
         return self.name
