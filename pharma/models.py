@@ -18,10 +18,10 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     def save_profile(self):
-    """
-    method saves entered profiles to the database
-    """
-    self.save()
+        """
+        method saves entered profiles to the database
+        """
+        self.save()
 
     def update_profile(self, using=None, fields=None, **kwargs):
         """
