@@ -66,3 +66,11 @@ def shop(request):
 def wishlist(request):
 
     return render(request, 'wishlist.html')
+
+def dashboard(request):
+
+    return render(request, 'admin/dashboard.html')
+
+def purchases(request):
+
+    return render(request, 'admin/purchases.html')

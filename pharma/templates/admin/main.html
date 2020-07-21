@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>PharmaParlor-Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'admin/img/favicon.png'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css'%}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Feathericon CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/feathericon.min.css'%}">
+
+    <link rel="stylesheet" href="{% static 'admin/plugins/morris/morris.css'%}">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/style.css'%}">
+
+</head>
+
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper">
+        <!-- Navbars -->
+        {% include 'admin/navbar/topnav.html' %}
+        {% include 'admin/navbar/sidenav.html' %}
+
+        {% include 'admin/partials/messages.html' %}
+
+        {% block content %}
+        {% endblock %}
+    </div>
+    <!-- /Main Wrapper -->
+
+    <!-- jQuery -->
+    <script src="{% static 'admin/js/jquery-3.2.1.min.js'%}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'admin/js/popper.min.js'%}"></script>
+    <script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
+
+    <!-- Slimscroll JS -->
+    <script src="{% static 'admin/plugins/slimscroll/jquery.slimscroll.min.js'%}"></script>
+
+    <script src="{% static 'admin/plugins/raphael/raphael.min.js'%}"></script>
+    <script src="{% static 'admin/plugins/morris/morris.min.js'%}"></script>
+    <script src="{% static 'admin/js/chart.morris.js'%}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'admin/js/script.js'%}"></script>
+
+</body>
+
+</html>
