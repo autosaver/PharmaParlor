@@ -83,8 +83,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'pharmaparlor',
-        'USER': 'default-007',
-    'PASSWORD':'expandebles7',
+        'USER': 'lucas',
+    'PASSWORD':'ballislife',
     }
 }
 
@@ -135,11 +135,11 @@ STATICFILES_DIRS = (
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_URL = 'login'
 
+LOGIN_REDIRECT_URL = 'home' 
 
-LOGIN_REDIRECT_URL = 'index' 
-
-LOGOUT_REDIRECT_URL = 'index'
+# LOGOUT_REDIRECT_URL = 'home'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
