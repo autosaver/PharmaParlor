@@ -252,9 +252,9 @@
     });
     amountprice.val(
       "$" +
-        sliderrange.slider("values", 0) +
-        " - $" +
-        sliderrange.slider("values", 1)
+      sliderrange.slider("values", 0) +
+      " - $" +
+      sliderrange.slider("values", 1)
     );
   });
 
@@ -266,12 +266,9 @@
     slidesToShow: 4,
     slidesToScroll: 1,
     centerPadding: "60px",
-    prevArrow:
-      '<span class="product-dec-icon product-dec-prev"><i class="fa fa-angle-left"></i></span>',
-    nextArrow:
-      '<span class="product-dec-icon product-dec-next"><i class="fa fa-angle-right"></i></span>',
-    responsive: [
-      {
+    prevArrow: '<span class="product-dec-icon product-dec-prev"><i class="fa fa-angle-left"></i></span>',
+    nextArrow: '<span class="product-dec-icon product-dec-next"><i class="fa fa-angle-right"></i></span>',
+    responsive: [{
         breakpoint: 768,
         settings: {
           slidesToShow: 3,
