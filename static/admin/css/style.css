@@ -2051,26 +2051,26 @@ html.menu-opened body {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   margin: 1.875rem auto;
-  max-width: 800px;
+  max-width: 100%;
   min-height: 500px;
   width: 100%;
 }
 .login-wrapper .loginbox .login-left {
   align-items: center;
-  background: linear-gradient(180deg, #519f10, #00d0f1);
+  background: linear-gradient(180deg, #519f10, #f3f3f3);
   border-radius: 6px 0 0 6px;
   flex-direction: column;
   justify-content: center;
-  padding: 80px;
-  width: 400px;
+  padding: 30px;
+  width: 50%;
   display: flex;
 }
 .login-wrapper .loginbox .login-right {
   align-items: center;
   display: flex;
   justify-content: center;
-  padding: 40px;
-  width: 400px;
+  padding: 30px;
+  width: 50%;
 }
 .login-wrapper .loginbox .login-right .login-right-wrap {
   max-width: 100%;

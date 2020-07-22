@@ -6,11 +6,7 @@ import datetime as dt
 
 # Create your models here.
 class Profile(models.Model):
-    """
-    class containing projects' objects
-    """
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    name = models.CharField(blank=True, max_length=120)
     location = models.CharField(max_length=60, blank=True)
     phone = models.IntegerField(blank=True, null=True)
 
@@ -18,15 +14,9 @@ class Profile(models.Model):
         return f'{self.user.username} Profile'
 
     def save_profile(self):
-        """
-        method saves entered profiles to the database
-        """
         self.save()
 
     def update_profile(self, using=None, fields=None, **kwargs):
-        """
-        method updates saved profile
-        """
         if fields is not None:
             fields = set(fields)
             deferred_fields = self.get_deferred_fields()
@@ -34,11 +24,7 @@ class Profile(models.Model):
                 fields = fields.union(deferred_fields)
         super().refresh_from_db(using, fields, **kwargs)
 
-
     def delete_profile(self):
-        """
-        method deletes entered profiles to the database
-        """
         self.delete()
 
     @receiver(post_save, sender=User)

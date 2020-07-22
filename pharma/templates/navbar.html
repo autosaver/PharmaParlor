@@ -1,8 +1,46 @@
 {% load static %}
 <!-- header start -->
 <header class="header-area gray-bg clearfix">
+
     <div class="header-bottom">
         <div class="container">
+            <div class="row">
+                <div class="col-lg-4 col-md-5 col-6">
+                    <div class="pt-15">
+                        <div class="main-menu">
+                            <form class="form-inline">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 col-md-7 col-6">
+                    <div class="header-bottom-right">
+                        <div class="main-menu">
+                            <div class="pt-15">
+
+                                {% if user.is_authenticated%}
+                                <!-- Nav Item - User Information -->
+                                <span class="mr-2 d-none d-lg-inline text-gray-900 small">{{request.user}}</span>
+
+                                <!-- Dropdown - User Information -->
+
+                                {% else %}
+                                <a href="{% url 'login' %}" class="btn btn-primary btn-icon-split">
+                                    <span class="icon text-white-50">
+                                        <i class="fas fa-door-open"></i>
+                                    </span>
+                                    <span class="text">Login</span>
+                                </a>
+                                {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row">
                 <div class="col-lg-3 col-md-4 col-6">
                     <div class="logo">
@@ -221,6 +259,16 @@
                             <li><a href="{% url 'blog' %}">BLOG</a>
                             </li>
                             <li><a href="{% url 'contact' %}"> Contact us </a></li>
+                            <li>
+                                <!-- Search form -->
+                                <form class="form-inline mr-auto">
+                                    <div class="md-form my-0">
+                                        <input class="form-control" type="text" placeholder="Search"
+                                            aria-label="Search">
+                                        <i class="fas fa-search text-white ml-3" aria-hidden="true"></i>
+                                    </div>
+                                </form>
+                            </li>
                         </ul>
                     </nav>
                 </div>
