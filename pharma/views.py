@@ -56,6 +56,7 @@ def logoutUser(request):
     return redirect('home')
 
 def home(request):
+    
 
     return render(request, 'home.html')
 
@@ -79,7 +80,9 @@ def contact(request):
 
     return render(request, 'contact.html')
 
+def product(request):
 
+    return render( request, 'product_details.html')
 
 def my_account(request):
 
