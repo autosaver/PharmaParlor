@@ -1,6 +1,6 @@
-$(function () {
-    $('.ayy').hover(function () {
-        $(this).find('.ayye').show(400);
-    });
+// $(function () {
+//     $('ul.ayy > li').hover(function () {
+//         $(this).find('ul.ayye').show(400);
+//     });
 
-});
+// });
