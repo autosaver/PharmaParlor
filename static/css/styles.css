@@ -1,0 +1,10 @@
+.mega-menu ul ul {
+    display: none;
+
+}
+
+.list li:hover ul {
+    display: block;
+    margin-top: 2px;
+
+}

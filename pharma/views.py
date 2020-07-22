@@ -54,7 +54,9 @@ def contact(request):
 
     return render(request, 'contact.html')
 
+def product(request):
 
+    return render( request, 'product_details.html')
 
 def my_account(request):
 
