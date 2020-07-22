@@ -11,23 +11,49 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from .tokens import account_activation_token
 from django.core.mail import EmailMessage
+from .decorators import unauthenticated_user
 import random
 from .forms import *
 from .models import *
 
 # Create your views here.
+@unauthenticated_user
 def register(request):
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+    if request.method =='POST':
+        form = RegisterForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, f'Your account has been created successfully!, You can now login.')
+            messages.success(request, 'Account was created for' + ' ' + username)
             return redirect('login')
     else:
-        form = UserRegisterForm()
-    return render(request, 'auth/register.html', {'form':form})
+        form = RegisterForm()
 
+    context = {
+        'form':form
+        }        
+    return render(request, 'auth/register.html', context)
+
+@unauthenticated_user
+def loginPage(request):
+    if request.method =='POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            messages.success(request, 'Logged in as' + ' ' + username)
+            return redirect('home')
+        else:
+            messages.error(request, 'Invalid Username and/or Password')
+            
+    context={}
+    return render(request, 'auth/login.html', context)
+
+def logoutUser(request):
+    logout(request)
+    messages.success(request, 'You have logged out. Thank you for using our services.')
+    return redirect('home')
 
 def home(request):
     

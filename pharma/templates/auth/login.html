@@ -1,32 +1,89 @@
-{%extends 'base.html'%}
+{% load static %}
 {% load crispy_forms_tags %}
 
-{% block content %}
-<div class="container ">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="../../../static/img/img.jpg" width="100%">
-        </div>
-        <div class="col-md-6">
-            <div class="content-section">
-                <form method="POST">
-                    {% csrf_token %}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Log In</legend>
-                        {{ form|crispy }}
-                    </fieldset>
-                    <div class="form-group">
-                        <button class="btn btn-outline-success" type="submit">Log In</button>
-                    </div>
-                </form>
-                <div class="border-top pt-3">
-                    <small class="text-muted">Need an account? <a class="ml-2" href="{% url 'register'%}">Sign Up
-                            Now</a></small>
-                </div>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>PharmaParlor-Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'admin/img/favicon.png'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css'%}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+    <!-- Main Wrapper -->
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-left">
+                        <h2>PharmaParlor</h2>
+                    </div>
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                            <h1>Welcome Back</h1>
+                            <p class="account-subtitle">Login</p>
+                            <div class="login-register-form">
+                                <form class="user" action="" method="POST">
+                                    {% csrf_token%}
+                                    <div class="form-group">
+                                        <input type="text" name="username" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="username">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" class="form-control form-control-user"
+                                            id="exampleInputPassword" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="custom-control custom-checkbox small">
+                                            <input type="checkbox" class="custom-control-input" id="customCheck">
+                                            <label class="custom-control-label" for="customCheck">Remember Me</label>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-success btn-block">Login</button>
+                                </form><br>
+                                <div class="text-center">
+                                    <a class="small" href="#">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="{% url 'register' %}">Create an Account!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+    <!-- /Main Wrapper -->
 
-{% endblock %}
+    <!-- jQuery -->
+    <script src="{% static 'admin/js/jquery-3.2.1.min.js'%}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'admin/js/popper.min.js'%}"></script>
+    <script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'admin/js/script.js'%}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>

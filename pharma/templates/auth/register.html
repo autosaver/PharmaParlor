@@ -1,37 +1,107 @@
-{% extends 'base.html' %}
+{% load static %}
 {% load crispy_forms_tags %}
 
-{% block content %}
-<div class="container">
-    <div class="row">
-        <div class="col-md-6">
-            <img src="../../../static/img/login.jpg" width="100%">
-        </div>
-        <div class="col-md-5">
-            {% if form.errors %}
-            <p> Some Information Might be Incorrect </p>
-            {% endif %}
-            <div class="content-section mt-5">
-                <div class="panel-body">
-                    <form method="POST">
-                        {% csrf_token %}
-                        <fieldset class="form-group">
-                            <legend class="border-bottom mb-4">Join Today</legend>
-                            {{ form | crispy }}
-                        </fieldset>
-                        <div class="form-group">
-                            <input type="submit" class="btn btn-outline-success btn-sm" value="Sign Up">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>PharmaParlor-Dashboard</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'admin/img/favicon.png'%}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/bootstrap.min.css'%}">
+
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="{% static 'admin/css/style.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Main Wrapper -->
+    <div class="main-wrapper login-body">
+        <div class="login-wrapper">
+            <div class="container">
+                <div class="loginbox">
+                    <div class="login-left">
+                        <h2>PharmaParlor</h2>
+                    </div>
+                    <div class="login-right">
+                        <div class="login-right-wrap">
+                            <h1>Create Account</h1>
+                            <p class="account-subtitle">Register</p>
+                            <div class="login-register-form">
+                                <form class="user" action="" method="post">
+                                    {% csrf_token %}
+                                    <div class="form-group">
+                                        {{ form.username|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            {{ form.first_name|as_crispy_field }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            {{ form.last_name|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        {{ form.email|as_crispy_field }}
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            {{ form.password1|as_crispy_field }}
+                                        </div>
+                                        <div class="col-sm-6">
+                                            {{ form.password2|as_crispy_field }}
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-user btn-block"> Register
+                                        Account</button>
+                                    <!--
+                                    <a href="index.html" class="btn btn-google btn-user btn-block disabled">
+                                      <i class="fab fa-google fa-fw"></i> Register with Google
+                                    </a>
+                                    <a href="index.html" class="btn btn-facebook btn-user btn-block disabled">
+                                      <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                    </a>-->
+                                </form>
+                                <br>
+                                <div class="text-center">
+                                    <a class="small" href="#">Forgot Password?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="{% url 'login' %}">Already have an account? Login!</a>
+                                </div>
+                            </div>
                         </div>
-                        <input type="hidden" name="next" value="{{next}}">
-                    </form>
-                    <div class="border-top pt-3">
-                        <small class="text-muted">Already have an account? <a class="ml-2" href="{% url 'login'%}">Sign
-                                In</a></small>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    </div>
+    <!-- /Main Wrapper -->
 
-{% endblock %}
+    <!-- jQuery -->
+    <script src="{% static 'admin/js/jquery-3.2.1.min.js'%}"></script>
+
+    <!-- Bootstrap Core JS -->
+    <script src="{% static 'admin/js/popper.min.js'%}"></script>
+    <script src="{% static 'admin/js/bootstrap.min.js'%}"></script>
+
+    <!-- Custom JS -->
+    <script src="{% static 'admin/js/script.js'%}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+</html>
