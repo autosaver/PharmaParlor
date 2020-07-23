@@ -17,26 +17,30 @@ from .forms import *
 from .models import *
 
 # Create your views here.
+
+
 @unauthenticated_user
 def register(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save()
             username = form.cleaned_data.get('username')
-            messages.success(request, 'Account was created for' + ' ' + username)
+            messages.success(
+                request, 'Account was created for' + ' ' + username)
             return redirect('login')
     else:
         form = RegisterForm()
 
     context = {
-        'form':form
-        }        
+        'form': form
+    }
     return render(request, 'auth/register.html', context)
+
 
 @unauthenticated_user
 def loginPage(request):
-    if request.method =='POST':
+    if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
@@ -46,59 +50,96 @@ def loginPage(request):
             return redirect('home')
         else:
             messages.error(request, 'Invalid Username and/or Password')
-            
-    context={}
+
+    context = {}
     return render(request, 'auth/login.html', context)
+
 
 def logoutUser(request):
     logout(request)
-    messages.success(request, 'You have logged out. Thank you for using our services.')
+    messages.success(
+        request, 'You have logged out. Thank you for using our services.')
     return redirect('home')
 
+
 def home(request):
-    
 
     return render(request, 'home.html')
+
+
+def shop(request):
+    products = Product.objects.all()
+    # product = Product.objects.get(pk=pk)
+    context = {'products': products,
+               'product': product}
+
+    return render(request, 'shop.html', context)
+
+
+def cart(request):
+    if request.user.is_authenticated:
+        customer = request.user.profile
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+    context = {'items': items,
+               'order': order}
+
+    return render(request, 'cart.html', context)
+
+
+def checkout(request):
+    if request.user.is_authenticated:
+        customer = request.user.profile
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+        items = order.orderitem_set.all()
+    else:
+        items = []
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
+    context = {'items': items,
+               'order': order}
+
+    return render(request, 'checkout.html', context)
+
 
 def about_us(request):
 
     return render(request, 'about_us.html')
 
-def blog(request):
-
-    return render(request, 'blog.html')
-
-def cart(request):
-
-    return render(request, 'cart.html')
-
-def checkout(request):
-
-    return render(request, 'checkout.html')
 
 def contact(request):
 
     return render(request, 'contact.html')
 
+
 def product(request):
 
-    return render( request, 'product_details.html')
+    return render(request, 'product_details.html')
+
 
 def my_account(request):
 
     return render(request, 'my_account.html')
 
-def shop(request):
 
-    return render(request, 'shop.html')
+def blog(request):
+
+    return render(request, 'blog.html')
+
 
 def wishlist(request):
 
     return render(request, 'wishlist.html')
 
+
 def dashboard(request):
 
     return render(request, 'admin/dashboard.html')
+
 
 def purchases(request):
 

@@ -384,99 +384,39 @@
                             </tr>
                           </thead>
                           <tbody>
+                            {% for item in items %}
                             <tr>
                               <td>
                                 <div class="o-pro-dec">
-                                  <p>Fusce aliquam</p>
+                                  <p>{{item.product.name}}</p>
                                 </div>
                               </td>
                               <td>
                                 <div class="o-pro-price">
-                                  <p>$236.00</p>
+                                  <p>{{item.product.price|floatformat:2}}</p>
                                 </div>
                               </td>
                               <td>
                                 <div class="o-pro-qty">
-                                  <p>2</p>
+                                  <p>{{item.quantity}}</p>
                                 </div>
                               </td>
                               <td>
                                 <div class="o-pro-subtotal">
-                                  <p>$236.00</p>
+                                  <p>KSH: {{item.get_total}}</p>
                                 </div>
                               </td>
                             </tr>
-                            <tr>
-                              <td>
-                                <div class="o-pro-dec">
-                                  <p>Primis in faucibus</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-price">
-                                  <p>$265.00</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-qty">
-                                  <p>3</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-subtotal">
-                                  <p>$265.00</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="o-pro-dec">
-                                  <p>Etiam gravida</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-price">
-                                  <p>$363.00</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-qty">
-                                  <p>2</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-subtotal">
-                                  <p>$363.00</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <div class="o-pro-dec">
-                                  <p>Quisque in arcu</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-price">
-                                  <p>$328.00</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-qty">
-                                  <p>2</p>
-                                </div>
-                              </td>
-                              <td>
-                                <div class="o-pro-subtotal">
-                                  <p>$328.00</p>
-                                </div>
-                              </td>
-                            </tr>
+                            {% endfor %}
                           </tbody>
                           <tfoot>
                             <tr>
+                              <td colspan="3">Total items </td>
+                              <td colspan="1">{{order.get_cart_items}}</td>
+                            </tr>
+                            <tr>
                               <td colspan="3">Subtotal </td>
-                              <td colspan="1">$4,001.00</td>
+                              <td colspan="1">KSH: {{order.get_cart_total|floatformat:2}}</td>
                             </tr>
                             <tr class="tr-f">
                               <td colspan="3">Shipping & Handling (Flat Rate - Fixed
@@ -485,7 +425,7 @@
                             </tr>
                             <tr>
                               <td colspan="3">Grand Total</td>
-                              <td colspan="1">$4,722.00</td>
+                              <td colspan="1">KSH: {{order.get_cart_total|floatformat:2}}</td>
                             </tr>
                           </tfoot>
                         </table>
