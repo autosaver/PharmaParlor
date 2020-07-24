@@ -82,7 +82,9 @@
                                                 </h4>
                                             </div>
                                             <div class="cart-hover">
-                                                <button class="btn btn-outline-info">+ Add to cart</button>
+                                                <button data-product={{product.id}} data-action="add"
+                                                    class="btn btn-outline-info add-btn update-cart">Add to
+                                                    cart</button>
                                             </div>
                                         </div>
                                         <div class="product-price-wrapper">
@@ -100,7 +102,8 @@
                                     <article>{{product.description}}</article>
                                     <div class="shop-list-cart-wishlist">
                                         <a href="#" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
-                                        <a href="#" title="Add To Cart"><i class="ion-ios-shuffle-strong"></i></a>
+                                        <a data-product={{product.id}} data-action="add" class="update-cart"
+                                            title="Add To Cart"><i class="ion-ios-shuffle-strong"></i></a>
                                         <a href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </a>

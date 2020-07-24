@@ -71,7 +71,7 @@ class Product(models.Model):
     subsubcategory = models.ForeignKey(
         SubSubCategory, on_delete=models.CASCADE, related_name='product')
     description = models.CharField(max_length=250, blank=True)
-    price = models.IntegerField(blank=True)
+    price = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
     discountedprice = models.IntegerField(blank=True, null=True)
     stock = models.IntegerField(blank=True)
     image = models.ImageField(upload_to='products/',
@@ -110,6 +110,16 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
         return total
+
+    @property
+    def shipping(self):
+        shipping = False
+        orderitems = self.orderitem_set.all()
+        for i in orderitems:
+            if i.product.stock >= 1:
+                shipping = True
+
+        return shipping
 
 
 class OrderItem(models.Model):
