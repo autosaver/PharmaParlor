@@ -182,7 +182,7 @@
                           <div class="tax-wrapper">
                             <p>Enter your shipping credentials.</p>
                             <div class="tax-select-wrapper">
-                              <form id="form">
+                              <form id="form" method="POST">
                                 {% csrf_token %}
                                 <div id="user-info">
                                   <div class="form-field">
@@ -365,8 +365,9 @@
     document.getElementById('user-info').innerHTML = ''
   }
   var form = document.getElementById('form')
-  csrftoken = form.getElementsByTagName('input')[0].value
-  console.log('Newtoken:', form.getElementsByTagName('input')[0].value)
+
+  csrftoken = form.getElementsByTagName("input")[0].value
+  console.log('Newtoken:', form.getElementsByTagName("input")[0].value)
 
   form.addEventListener('submit', function (e) {
     e.preventDefault()
@@ -403,11 +404,12 @@
     }
 
     var url = '/process_order/'
+
     fetch(url, {
         method: 'POST',
         headers: {
-          'content-Type': 'application/json',
-          'X-CSRFToken': csrftoken
+          'Content-Type': 'application/json',
+          'X-CSRFToken': csrftoken,
         },
         body: JSON.stringify({
           'form': userFormData,
@@ -416,13 +418,22 @@
       })
 
       .then((response) => {
+        if (!response.ok) {
+          //error processing
+          throw 'Error';
+        }
         return response.json()
       })
+      // .then(text => console.log(text))
       .then((data) => {
         console.log('Success:', data);
         alert('Transaction complete');
+        cart = {}
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
         window.location.href = "{% url 'shop' %}"
       })
+
+
   }
 </script>
 {% endblock %}
