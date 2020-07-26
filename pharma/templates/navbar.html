@@ -158,228 +158,189 @@
                                                         <ul>
                                                             <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
                                                         </ul>
-                                            </li>
-                                            <li class="mt-2">Wound Care
-                                                <ul>
-                                                    <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                        <li class="mt-2">Wound Care
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Allergy Relief
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </div>
                                                 </ul>
                                             </li>
-                                            <li class="mt-2">Allergy Relief
+                                            <li>
                                                 <ul>
-                                                    <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
-                                                </ul>
-                                            </li>
-                        </div>
+                                                    <li class="mega-menu-title">Prescription</li>
+                                                    <div class="list">
+                                                        <li>Digestive Relief
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Pain Relief
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Respiratory Relief
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Reproductive Health
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Wound Care
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mt-2">Allergy Relief
+                                                            <ul>
+                                                                <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                            </ul>
+                                                        </li>
+                                                    </div>
 
-                        </ul>
-                        </li>
-                        <li>
-                            <ul>
-                                <li class="mega-menu-title">Prescription</li>
-                                <div class="list">
-                                    <li>Digestive Relief
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
-                                    <li class="mt-2">Pain Relief
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
+                                    <li class="top-hover"><a href="{% url 'blog' %}">blog</a>
+                                    </li>
+                                    <li class="top-hover"><a href="#">pages</a>
+                                        <ul class="submenu">
+                                            <li><a href="{% url 'my_account' %}">My Account</a></li>
+                                            <li><a href="{% url 'cart' %}">cart page</a></li>
+                                            <li><a href="{% url 'checkout' %}">checkout</a></li>
+                                            <li><a href="{% url 'wishlist' %}">wishlist</a></li>
+                                            <li><a href="{% url 'register' %}">register</a></li>
+
+                                            <li><a href="{% url 'logout' %}">logout</a></li>
                                         </ul>
                                     </li>
-                                    <li class="mt-2">Respiratory Relief
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mt-2">Reproductive Health
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mt-2">Wound Care
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
-                                        </ul>
-                                    </li>
-                                    <li class="mt-2">Allergy Relief
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Sub-sub category</a></li>
-                                        </ul>
-                                    </li>
+                                    <li><a href="{% url 'contact' %}">contact</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <!--Currency-->
+                        <div class="header-currency">
+                            <span class="digit">KSH </span>
+                        </div>
+                        <!--Cart-->
+                        <div class="header-cart">
+                            <a href="{% url 'cart' %}">
+                                <div class="cart-icon">
+                                    <i class="fa fa-shopping-cart">
+
+                                    </i>
+                                    <p id="cart-total">{{cartItems}}</p>
+
                                 </div>
 
-                            </ul>
-                        </li>
-                        </ul>
-                        </li>
-                        <li class="top-hover"><a href="{% url 'blog' %}">blog</a>
-                        </li>
-                        <li class="top-hover"><a href="#">pages</a>
-                            <ul class="submenu">
-                                <li><a href="{% url 'my_account' %}">My Account</a></li>
-                                <li><a href="{% url 'cart' %}">cart page</a></li>
-                                <li><a href="{% url 'checkout' %}">checkout</a></li>
-                                <li><a href="{% url 'wishlist' %}">wishlist</a></li>
-                                <li><a href="{% url 'register' %}">register</a></li>
-                                <li><a href="{% url 'login' %}">login</a></li>
-                                <li><a href="{% url 'logout' %}">logout</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="{% url 'contact' %}">contact</a></li>
-                        </ul>
-                        </nav>
-                    </div>
-                    <!--Currency-->
-                    <div class="header-currency">
-                        <span class="digit">KSH</span>
-                    </div>
-                    <!--Cart-->
-                    <div class="header-cart">
-                        <a href="{% url 'cart' %}">
-                            <div class="cart-icon">
-                                <i class="fa fa-shopping-cart"></i>
-                            </div>
-                        </a>
-                        <!--Shopping Cart Content-->
-                        <!--
-                  <div class="shopping-cart-content">
-                    <ul>
-                      <li class="single-shopping-cart">
-                        <div class="shopping-cart-img">
-                          <a href="#"><img alt="" src="assets/img/cart/cart-1.jpg"></a>
+                            </a>
+
+
                         </div>
-                        <div class="shopping-cart-title">
-                          <h4><a href="#">Producta1</a></h4>
-                          <h6>Qty: 02</h6>
-                          <span>$260.00</span>
-                        </div>
-                        <div class="shopping-cart-delete">
-                          <a href="#">
-                            <ion-icon name="close"></ion-icon>
-                          </a>
-                        </div>
-                      </li>
-                      <li class="single-shopping-cart">
-                        <div class="shopping-cart-img">
-                          <a href="#"><img alt="" src="assets/img/cart/cart-2.jpg"></a>
-                        </div>
-                        <div class="shopping-cart-title">
-                          <h4><a href="#">Productc2</a></h4>
-                          <h6>Qty: 02</h6>
-                          <span>$260.00</span>
-                        </div>
-                        <div class="shopping-cart-delete">
-                          <a href="#">
-                            <ion-icon name="close-outline"></ion-icon>
-                          </a>
-                        </div>
-                      </li>
-                    </ul>
-                    <div class="shopping-cart-total">
-                      <h4>Shipping : <span>$20.00</span></h4>
-                      <h4>Total : <span class="shop-total">$260.00</span></h4>
-                    </div>
-                    <div class="shopping-cart-btn">
-                      <a href="{% url 'cart' %}">view cart</a>
-                      <a href="{% url 'checkout' %}">checkout</a>
-                    </div>
-                  </div>-->
                     </div>
                 </div>
-            </div>
 
-            <!--Mobile Menu-->
-            <div class="mobile-menu-area">
-                <div class="mobile-menu">
-                    <nav id="mobile-menu-active">
-                        <ul class="menu-overflow">
-                            <li><a href="index.html">HOME</a>
-                            </li>
-                            <li><a href="#">pages</a>
-                                <ul>
-                                    <li><a href="{% url 'my_account' %}">My Account</a></li>
-                                    <li><a href="{% url 'cart' %}">cart page</a></li>
-                                    <li><a href="{% url 'checkout' %}">checkout</a></li>
-                                    <li><a href="{% url 'wishlist' %}">wishlist</a></li>
-                                    <li><a href="{% url 'register' %}">register</a></li>
-                                    <li><a href="{% url 'login' %}">login</a></li>
-                                    <li><a href="{% url 'logout' %}">logout</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'shop' %}"> Shop </a>
-                                <ul>
-                                    <li><a href="#">Health and Wellness</a>
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Aromatherapy</a></li>
-                                            <li><a href="{% url 'shop' %}">producta2</a></li>
-                                            <li><a href="{% url 'shop' %}">Producta3</a></li>
-                                            <li><a href="{% url 'shop' %}">Producta4</a></li>
-                                            <li><a href="{% url 'shop' %}">Producta5</a></li>
-                                            <li><a href="{% url 'shop' %}">Producta6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Personal Care</a>
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Productb1</a></li>
-                                            <li><a href="{% url 'shop' %}">Productb2</a></li>
-                                            <li><a href="{% url 'shop' %}">Productb3</a></li>
-                                            <li><a href="{% url 'shop' %}">Productb4</a></li>
-                                            <li><a href="{% url 'shop' %}">Productb5</a></li>
-                                            <li><a href="{% url 'shop' %}">Productb6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Pharmacy Only</a>
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Productc1</a></li>
-                                            <li><a href="{% url 'shop' %}">Productc2</a></li>
-                                            <li><a href="{% url 'shop' %}">Productc3</a></li>
-                                            <li><a href="{% url 'shop' %}">Productc4</a></li>
-                                            <li><a href="{% url 'shop' %}">Productc5</a></li>
-                                            <li><a href="{% url 'shop' %}">Productc6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Prescription</a>
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Productd1</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd2</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd3</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd4</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd5</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd6</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">Medical Devices</a>
-                                        <ul>
-                                            <li><a href="{% url 'shop' %}">Productd1</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd2</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd3</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd4</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd5</a></li>
-                                            <li><a href="{% url 'shop' %}">Productd6</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li><a href="{% url 'blog' %}">BLOG</a>
-                            </li>
-                            <li><a href="{% url 'contact' %}"> Contact us </a></li>
-                            <li>
-                                <!-- Search form -->
-                                <form class="form-inline mr-auto">
-                                    <div class="md-form my-0">
-                                        <input class="form-control" type="text" placeholder="Search"
-                                            aria-label="Search">
-                                        <i class="fas fa-search text-white ml-3" aria-hidden="true"></i>
-                                    </div>
-                                </form>
-                            </li>
-                        </ul>
-                    </nav>
+                <!--Mobile Menu-->
+                <div class="mobile-menu-area">
+                    <div class="mobile-menu">
+                        <nav id="mobile-menu-active">
+                            <ul class="menu-overflow">
+                                <li><a href="index.html">HOME</a>
+                                </li>
+                                <li><a href="#">pages</a>
+                                    <ul>
+                                        <li><a href="{% url 'my_account' %}">My Account</a></li>
+                                        <li><a href="{% url 'cart' %}">cart page</a></li>
+                                        <li><a href="{% url 'checkout' %}">checkout</a></li>
+                                        <li><a href="{% url 'wishlist' %}">wishlist</a></li>
+                                        <li><a href="{% url 'register' %}">register</a></li>
+                                        <li><a href="{% url 'login' %}">login</a></li>
+                                        <li><a href="{% url 'logout' %}">logout</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'shop' %}"> Shop </a>
+                                    <ul>
+                                        <li><a href="#">Health and Wellness</a>
+                                            <ul>
+                                                <li><a href="{% url 'shop' %}">Aromatherapy</a></li>
+                                                <li><a href="{% url 'shop' %}">producta2</a></li>
+                                                <li><a href="{% url 'shop' %}">Producta3</a></li>
+                                                <li><a href="{% url 'shop' %}">Producta4</a></li>
+                                                <li><a href="{% url 'shop' %}">Producta5</a></li>
+                                                <li><a href="{% url 'shop' %}">Producta6</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Personal Care</a>
+                                            <ul>
+                                                <li><a href="{% url 'shop' %}">Productb1</a></li>
+                                                <li><a href="{% url 'shop' %}">Productb2</a></li>
+                                                <li><a href="{% url 'shop' %}">Productb3</a></li>
+                                                <li><a href="{% url 'shop' %}">Productb4</a></li>
+                                                <li><a href="{% url 'shop' %}">Productb5</a></li>
+                                                <li><a href="{% url 'shop' %}">Productb6</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Pharmacy Only</a>
+                                            <ul>
+                                                <li><a href="{% url 'shop' %}">Productc1</a></li>
+                                                <li><a href="{% url 'shop' %}">Productc2</a></li>
+                                                <li><a href="{% url 'shop' %}">Productc3</a></li>
+                                                <li><a href="{% url 'shop' %}">Productc4</a></li>
+                                                <li><a href="{% url 'shop' %}">Productc5</a></li>
+                                                <li><a href="{% url 'shop' %}">Productc6</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Prescription</a>
+                                            <ul>
+                                                <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd6</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#">Medical Devices</a>
+                                            <ul>
+                                                <li><a href="{% url 'shop' %}">Productd1</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd2</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd3</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd4</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd5</a></li>
+                                                <li><a href="{% url 'shop' %}">Productd6</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </li>
+                                <li><a href="{% url 'blog' %}">BLOG</a>
+                                </li>
+                                <li><a href="{% url 'contact' %}"> Contact us </a></li>
+                                <li>
+                                    <!-- Search form -->
+                                    <form class="form-inline mr-auto">
+                                        <div class="md-form my-0">
+                                            <input class="form-control" type="text" placeholder="Search"
+                                                aria-label="Search">
+                                            <i class="fas fa-search text-white ml-3" aria-hidden="true"></i>
+                                        </div>
+                                    </form>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     </div>
 </header>
 <!-- header end -->

@@ -19,7 +19,7 @@
 <!-- shopping-cart-area start -->
 <div class="cart-main-area ptb-100">
     <div class="container">
-        <h3 class="page-title">Your cart items</h3>
+        <h3 class="page-title">Your cart items: {{order.get_cart_items}}</h3>
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-12">
                 <form action="#">
@@ -31,62 +31,40 @@
                                     <th>Product Name</th>
                                     <th>Until Price</th>
                                     <th>Qty</th>
+                                    <th></th>
                                     <th>Subtotal</th>
                                     <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
+                                {% for item in items %}
                                 <tr>
                                     <td class="product-thumbnail">
                                         <a href="#"><img src="assets/img/tabs.jpg" alt=""></a>
                                     </td>
-                                    <td class="product-name"><a href="#">Producta1 </a></td>
-                                    <td class="product-price-cart"><span class="amount">$260.00</span></td>
+                                    <td class="product-name">{{item.product.name}}</td>
+                                    <td class="product-price-cart"><span class="amount">KSH:
+                                            {{item.product.price|floatformat:2}}</span></td>
                                     <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
+                                        <p class="quantity">{{item.quantity}}</p>
                                     </td>
-                                    <td class="product-subtotal">$110.00</td>
+                                    <td>
+                                        <div class="quantity">
+                                            <img data-product="{{item.product.id}}" width="30%" data-action="add"
+                                                class="chg-quantity update-cart" src="{% static 'img/up.png'%}"><br>
+
+                                            <img data-product="{{item.product.id}}" width="30%" data-action="remove"
+                                                class="chg-quantity update-cart" src="{% static 'img/down.png'%}">
+                                        </div>
+
+                                    </td>
+                                    <td class="product-subtotal">KSH: {{item.get_total}}</td>
                                     <td class="product-remove">
                                         <a href="#"><i class="fa fa-pencil"></i></a>
                                         <a href="#"><i class="fa fa-times"></i></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="assets/img/soon.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Productb2</a></td>
-                                    <td class="product-price-cart"><span class="amount">$150.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$150.00</td>
-                                    <td class="product-remove">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="product-thumbnail">
-                                        <a href="#"><img src="assets/img/satchet.jpg" alt=""></a>
-                                    </td>
-                                    <td class="product-name"><a href="#">Productc3</a></td>
-                                    <td class="product-price-cart"><span class="amount">$170.00</span></td>
-                                    <td class="product-quantity">
-                                        <div class="pro-dec-cart">
-                                            <input class="cart-plus-minus-box" type="text" value="02" name="qtybutton">
-                                        </div>
-                                    </td>
-                                    <td class="product-subtotal">$170.00</td>
-                                    <td class="product-remove">
-                                        <a href="#"><i class="fa fa-pencil"></i></a>
-                                        <a href="#"><i class="fa fa-times"></i></a>
-                                    </td>
-                                </tr>
+                                {% endfor %}
                             </tbody>
                         </table>
                     </div>
@@ -94,7 +72,7 @@
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-shiping-update">
-                                    <a href="#">Continue Shopping</a>
+                                    <a href="{% url 'shop' %}">Continue Shopping</a>
                                 </div>
                                 <div class="cart-clear">
                                     <button>Update Shopping Cart</button>
@@ -105,38 +83,8 @@
                     </div>
                 </form>
                 <div class="row">
-                    <div class="col-lg-4 col-md-6">
-                        <div class="cart-tax">
-                            <div class="title-wrap">
-                                <h4 class="cart-bottom-title section-bg-gray">Estimate Shipping And Tax</h4>
-                            </div>
-                            <div class="tax-wrapper">
-                                <p>Enter your destination to get a shipping estimate.</p>
-                                <div class="tax-select-wrapper">
-                                    <div class="tax-select">
-                                        <label>
-                                            * Region
-                                        </label>
-                                        <select class="email s-email s-wid">
-                                            <option>Nairobi CBD</option>
-                                            <option>..</option>
-                                            <option>..</option>
-                                            <option>..</option>
-                                            <option>..</option>
-                                        </select>
-                                    </div>
-                                    <div class="tax-select">
-                                        <label>
-                                            * Zip/Postal Code
-                                        </label>
-                                        <input type="text">
-                                    </div>
-                                    <button class="cart-btn-2" type="submit">Get A Quote</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-md-6">
+
+                    <div class="col-md-6">
                         <div class="discount-code-wrapper">
                             <div class="title-wrap">
                                 <h4 class="cart-bottom-title section-bg-gray">Use Coupon Code</h4>
@@ -150,21 +98,22 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-4 col-md-12">
+                    <div class="col-md-6">
                         <div class="grand-totall">
                             <div class="title-wrap">
                                 <h4 class="cart-bottom-title section-bg-gary-cart">Cart Total</h4>
                             </div>
-                            <h5>Total products <span>$260.00</span></h5>
+                            <h5>Total products <span>KSH: {{order.get_cart_total|floatformat:2}}</span></h5>
                             <div class="total-shipping">
                                 <h5>Total shipping</h5>
                                 <ul>
-                                    <li><input type="checkbox"> Standard <span>$20.00</span></li>
-                                    <li><input type="checkbox"> Express <span>$30.00</span></li>
+                                    <li><input type="checkbox"> Standard <span>KSH: 100</span></li>
+                                    <li><input type="checkbox"> Express <span>KSH: 150</span></li>
                                 </ul>
                             </div>
-                            <h4 class="grand-totall-title">Grand Total <span>$260.00</span></h4>
-                            <a href="#">Proceed to Checkout</a>
+                            <h4 class="grand-totall-title">Grand Total <span>KSH:
+                                    {{order.get_cart_total|floatformat:2}}</span></h4>
+                            <a href="{% url 'checkout' %}">Proceed to Checkout</a>
                         </div>
                     </div>
                 </div>
@@ -172,4 +121,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}
