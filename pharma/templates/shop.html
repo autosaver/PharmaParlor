@@ -57,9 +57,9 @@
                             <div class="product-width col-xl-4 col-lg-4 col-md-4 col-sm-6 col-12 mb-30">
                                 <div class="product-wrapper">
                                     <div class="product-img">
-                                        <a href="product-details.html">
-                                            <img alt="" src="assets/img/soon.jpg">
-                                        </a>
+
+                                        <img alt="" src="{{product.image_url}}">
+
                                         <span>-30%</span>
                                         <div class="product-action">
                                             <a class="action-wishlist" href="#" title="Wishlist">
@@ -92,13 +92,7 @@
                                             <span class="product-price-old">KSH: {{product.price|floatformat:2}} </span>
                                         </div>
                                     </div>
-                                    <h4>
-                                        <p><strong>{{product.name}}</strong></p>
-                                    </h4>
-                                    <div class="product-price-wrapper">
-                                        <span>KSH: {{product.discountedprice|floatformat:2}}</span>
-                                        <span class="product-price-old">KSH: {{product.price|floatformat:2}} </span>
-                                    </div>
+                                    <br>
                                     <article>{{product.description}}</article>
                                     <div class="shop-list-cart-wishlist">
                                         <a href="#" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
