@@ -11,8 +11,7 @@ class Profile(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, related_name='profile')
     location = models.CharField(max_length=60, blank=True)
-    phone = models.IntegerField(blank=True, null=True)
-    email = models.CharField(max_length=200, null=True)
+    phone = models.CharField(max_length=60, blank=True, null=True)
 
     def __str__(self):
         return f'{self.user.username} Profile'

@@ -210,9 +210,67 @@ def product(request, pk):
     return render(request, 'product_details.html', context)
 
 
-def my_account(request):
+# def (request, username):
+#     user = get_object_or_404(User, username=username)
+#     if request.user == user:
+#         return redirect('my_account', username=request.user.username)
+#     context = {'user': user}
+#     return render(request, 'my_account.html', context)
 
-    return render(request, 'my_account.html')
+
+def my_account(request):
+    current_user = request.user
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(
+            request.POST, request.FILES, instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, f'Your account has been updated!')
+            return redirect('my_account')
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+    if request.user.is_authenticated:
+        customer = request.user.profile
+        order, created = Order.objects.get_or_create(
+            customer=customer, complete=False)
+        items = order.orderitem_set.all()
+        cartItems = order.get_cart_items
+    else:
+        cookieData = cookieCart(request)
+        cartItems = cookieData['cartItems']
+
+    products = Product.objects.all()
+    context = {'products': products,
+               'product': product,
+               'cartItems': cartItems,
+               'u_form': u_form,
+               'p_form': p_form, }
+
+    return render(request, 'my_account.html', context)
+
+
+# def edit_profile(request, username):
+#     user = User.objects.get(username=username)
+#     if request.method == 'POST':
+#         u_form = UserUpdateForm(request.POST, instance=request.user)
+#         p_form = ProfileUpdateForm(
+#             request.POST, request.FILES, instance=request.user.profile)
+#         if u_form.is_valid() and p_form.is_valid():
+#             u_form.save()
+#             p_form.save()
+#             return redirect('my_account', user.username)
+#     else:
+#         u_form = UserUpdateForm(instance=request.user)
+#         p_form = ProfileUpdateForm(instance=request.user.profile)
+#     params = {
+#         'u_form': u_form,
+#         'p_form': p_form
+#     }
+#     return render(request, 'edit.html', params)
 
 
 def blog(request):
