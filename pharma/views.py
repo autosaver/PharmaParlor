@@ -1,7 +1,7 @@
 # from django.views.decorators.csrf import csrf_exempt
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
@@ -144,6 +144,9 @@ def updateItem(request):
 
     if orderItem.quantity <= 0:
         orderItem.delete()
+
+    if action == 'delete':
+        orderItem.delete()
     return JsonResponse('Item added', safe=False)
 
 
@@ -200,9 +203,11 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def product(request):
+def product(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {'product': product}
 
-    return render(request, 'product_details.html')
+    return render(request, 'product_details.html', context)
 
 
 def my_account(request):

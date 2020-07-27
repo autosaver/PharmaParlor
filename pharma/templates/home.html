@@ -15,7 +15,7 @@
           <p>Lorem ipsum dolor sit amet, consectetu adipisicing elit sedeiu tempor inci ut labore et dolore magna
             aliqua.</p>
           <a class="btn btn-lg btn-success" href="">Upload Px</a>
-          <a class="btn btn-lg btn-primary" href="">Shop Now</a>
+          <a class="btn btn-lg btn-primary" href="{% url 'shop' %}">Shop Now</a>
         </div>
       </div>
     </div>
@@ -76,18 +76,21 @@
       </div>
     </div>
     <div class="featured-product-active hot-flower owl-carousel product-nav">
+      {% for product in products %}
       <div class="product-wrapper">
+
         <div class="product-img">
-          <a href="product-details.html">
-            <img alt="" src="{% static 'img/1503549.jpg'%}">
-          </a>
+
+
+          <img alt="product image" src="{{product.image_url}}">
+
           <span>-20%</span>
           <div class="product-action">
             <a class="action-wishlist" href="#" title="Wishlist">
               <i class="ion-android-favorite-outline"></i>
             </a>
-            <a class="action-cart" href="#" title="Add To Cart">
-              <i class="ion-ios-shuffle-strong"></i>
+            <a data-product={{product.id}} data-action="add" class="update-cart" title="Add To Cart">
+              <ion-icon name="add-circle-outline"></ion-icon>
             </a>
             <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
               <i class="ion-ios-search-strong"></i>
@@ -98,157 +101,24 @@
           <div class="product-hover-style">
             <div class="product-title">
               <h4>
-                <a href="product-details.html">Product 1</a>
+                <a href="#">{{product.name}}</a>
               </h4>
             </div>
             <div class="cart-hover">
-              <h4><a href="product-details.html">+ Add to cart</a></h4>
+              <button data-product={{product.id}} data-action="add" class="btn btn-outline-info add-btn update-cart">Add
+                to
+                cart</button>
             </div>
           </div>
           <div class="product-price-wrapper">
-            <span>$100.00 -</span>
-            <span class="product-price-old">$120.00 </span>
+            <span>KSH: {{product.discountedprice|floatformat:2}}</span>
+            <span class="product-price-old">KSH: {{product.price|floatformat:2}} </span>
           </div>
         </div>
+
       </div>
-      <div class="product-wrapper">
-        <div class="product-img">
-          <a href="product-details.html">
-            <img alt="" src="{% static 'img/1503549.jpg'%}">
-          </a>
-          <div class="product-action">
-            <a class="action-wishlist" href="#" title="Wishlist">
-              <i class="ion-android-favorite-outline"></i>
-            </a>
-            <a class="action-cart" href="#" title="Add To Cart">
-              <i class="ion-ios-shuffle-strong"></i>
-            </a>
-            <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-              <i class="ion-ios-search-strong"></i>
-            </a>
-          </div>
-        </div>
-        <div class="product-content text-left">
-          <div class="product-hover-style">
-            <div class="product-title">
-              <h4>
-                <a href="product-details.html">Product 2</a>
-              </h4>
-            </div>
-            <div class="cart-hover">
-              <h4><a href="product-details.html">+ Add to cart</a></h4>
-            </div>
-          </div>
-          <div class="product-price-wrapper">
-            <span>$100.00 -</span>
-            <span class="product-price-old">$120.00 </span>
-          </div>
-        </div>
-      </div>
-      <div class="product-wrapper">
-        <div class="product-img">
-          <a href="product-details.html">
-            <img alt="" src="{% static 'img/1503549.jpg'%}">
-          </a>
-          <span>-50%</span>
-          <div class="product-action">
-            <a class="action-wishlist" href="#" title="Wishlist">
-              <i class="ion-android-favorite-outline"></i>
-            </a>
-            <a class="action-cart" href="#" title="Add To Cart">
-              <i class="ion-ios-shuffle-strong"></i>
-            </a>
-            <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-              <i class="ion-ios-search-strong"></i>
-            </a>
-          </div>
-        </div>
-        <div class="product-content text-left">
-          <div class="product-hover-style">
-            <div class="product-title">
-              <h4>
-                <a href="product-details.html">Product 3</a>
-              </h4>
-            </div>
-            <div class="cart-hover">
-              <h4><a href="product-details.html">+ Add to cart</a></h4>
-            </div>
-          </div>
-          <div class="product-price-wrapper">
-            <span>$100.00 -</span>
-            <span class="product-price-old">$120.00 </span>
-          </div>
-        </div>
-      </div>
-      <div class="product-wrapper">
-        <div class="product-img">
-          <a href="product-details.html">
-            <img alt="" src="{% static 'img/1503549.jpg'%}">
-          </a>
-          <div class="product-action">
-            <a class="action-wishlist" href="#" title="Wishlist">
-              <i class="ion-android-favorite-outline"></i>
-            </a>
-            <a class="action-cart" href="#" title="Add To Cart">
-              <i class="ion-ios-shuffle-strong"></i>
-            </a>
-            <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-              <i class="ion-ios-search-strong"></i>
-            </a>
-          </div>
-        </div>
-        <div class="product-content text-left">
-          <div class="product-hover-style">
-            <div class="product-title">
-              <h4>
-                <a href="product-details.html">Product 4</a>
-              </h4>
-            </div>
-            <div class="cart-hover">
-              <h4><a href="product-details.html">+ Add to cart</a></h4>
-            </div>
-          </div>
-          <div class="product-price-wrapper">
-            <span>$100.00 -</span>
-            <span class="product-price-old">$120.00 </span>
-          </div>
-        </div>
-      </div>
-      <div class="product-wrapper">
-        <div class="product-img">
-          <a href="product-details.html">
-            <img alt="" src="{% static 'img/1503549.jpg'%}">
-          </a>
-          <span>-30%</span>
-          <div class="product-action">
-            <a class="action-wishlist" href="#" title="Wishlist">
-              <i class="ion-android-favorite-outline"></i>
-            </a>
-            <a class="action-cart" href="#" title="Add To Cart">
-              <i class="ion-ios-shuffle-strong"></i>
-            </a>
-            <a class="action-compare" href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
-              <i class="ion-ios-search-strong"></i>
-            </a>
-          </div>
-        </div>
-        <div class="product-content text-left">
-          <div class="product-hover-style">
-            <div class="product-title">
-              <h4>
-                <a href="product-details.html">Product 5</a>
-              </h4>
-            </div>
-            <div class="cart-hover">
-              <h4><a href="product-details.html">+ Add to cart</a></h4>
-            </div>
-          </div>
-          <div class="product-price-wrapper">
-            <span>$100.00 -</span>
-            <span class="product-price-old">$120.00 </span>
-          </div>
-        </div>
-      </div>
+
+      {% endfor %}
     </div>
   </div>
 </div>

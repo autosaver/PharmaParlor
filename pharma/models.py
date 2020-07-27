@@ -74,8 +74,8 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2, blank=True)
     discountedprice = models.IntegerField(blank=True, null=True)
     stock = models.IntegerField(blank=True)
-    image = models.ImageField(upload_to='products/',
-                              blank=True, default=' static/img/product/product-4.jpg')
+    image = models.ImageField(upload_to='product/',
+                              blank=True)
 
     def __str__(self):
         return self.name
@@ -84,9 +84,12 @@ class Product(models.Model):
     def search_product(cls, name):
         return cls.objects.filter(name__icontains=name).all()
 
-    # @classmethod
-    # def get_by_id(cls, pk, **kwargs):
-    #     return cls.objects.get(pk=pk)
+    @property
+    def image_url(self):
+        if self.image and hasattr(self.image, 'url'):
+            return self.image.url
+        else:
+            return "/media/1503549.jpg"
 
 
 class Order(models.Model):
@@ -110,6 +113,9 @@ class Order(models.Model):
         orderitems = self.orderitem_set.all()
         total = sum([item.quantity for item in orderitems])
         return total
+
+    def delete_order(self):
+        self.delete()
 
     @property
     def shipping(self):
