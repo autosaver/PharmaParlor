@@ -32,38 +32,40 @@
                                 <div class="panel-body">
                                     <div class="billing-information-wrapper">
                                         <div class="account-info-wrapper">
-                                            <h4>My Account Information</h4>
-                                            <h5>Your Personal Details</h5>
+                                            <h4>Account Information</h4>
+                                            <h5>{{user.username}}'s Details</h5>
                                         </div>
                                         <div class="row">
+
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="billing-info">
-                                                    <label>First Name</label>
-                                                    <input type="text">
+                                                    <label><strong>First Name:</strong> {{user.first_name}}</label>
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="billing-info">
-                                                    <label>Last Name</label>
-                                                    <input type="text">
+                                                    <label><strong>Last Name:</strong> {{user.last_name}}</label>
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-12 col-md-12">
                                                 <div class="billing-info">
-                                                    <label>Email Address</label>
-                                                    <input type="email">
+                                                    <label><strong>Mail:</strong> {{ user.email }}</label>
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="billing-info">
-                                                    <label>Telephone</label>
-                                                    <input type="text">
+                                                    <label><strong>Location:</strong>
+                                                        {{ user.profile.location }}</label>
+
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-6">
                                                 <div class="billing-info">
-                                                    <label>Fax</label>
-                                                    <input type="text">
+                                                    <label><strong>Contacts:</strong> {{ user.profile.phone }}</label>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -73,6 +75,43 @@
                                             </div>
                                             <div class="billing-btn">
                                                 <button type="submit">Continue</button>
+                                            </div>
+                                            <div class="billing-btn">
+                                                <button type="button" data-toggle="modal"
+                                                    data-target="#update">Update</button>
+                                            </div>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="update" tabindex="-1" role="dialog"
+                                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Profile
+                                                                Details</h5>
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <form method="POST" enctype="multipart/form-data">
+                                                                {% csrf_token %}
+                                                                <fieldset class="form-group">
+                                                                    {%  crispy u_form %}
+                                                                    {%  crispy p_form %}
+                                                                    <input type="submit" class="btn btn-sm btn-info"
+                                                                        value="Save" />
+                                                                </fieldset>
+                                                                <div class="form-group">
+
+                                                                    <button type="button" class="btn btn-secondary"
+                                                                        data-dismiss="modal">Close</button>
+
+                                                                </div>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
