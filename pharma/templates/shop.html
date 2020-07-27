@@ -65,7 +65,8 @@
                                             <a class="action-wishlist" href="#" title="Wishlist">
                                                 <ion-icon name="heart-outline"></ion-icon>
                                             </a>
-                                            <a class="action-cart" href="#" title="Add To Cart">
+                                            <a data-product={{product.id}} data-action="add" class="update-cart"
+                                                title="Add To Cart">
                                                 <ion-icon name="add-circle-outline"></ion-icon>
                                             </a>
                                             <a class="action-compare" href="#" data-target="#exampleModal"
@@ -97,7 +98,9 @@
                                     <div class="shop-list-cart-wishlist">
                                         <a href="#" title="Wishlist"><i class="ion-android-favorite-outline"></i></a>
                                         <a data-product={{product.id}} data-action="add" class="update-cart"
-                                            title="Add To Cart"><i class="ion-ios-shuffle-strong"></i></a>
+                                            title="Add To Cart">
+                                            <ion-icon name="add-circle-outline"></ion-icon>
+                                        </a>
                                         <a href="#" data-target="#exampleModal" data-toggle="modal" title="Quick View">
                                             <ion-icon name="search-outline"></ion-icon>
                                         </a>
@@ -128,101 +131,102 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-3">
-            <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
-                <div class="shop-widget">
-                    <h4 class="shop-sidebar-title">Shop By Categories</h4>
-                    <div class="shop-catigory">
-                        <ul id="faq">
-                            <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-1">Category
-                                    01
-                                    <i class="fas fa-angle-down"></i></a>
-                                <ul id="shop-catigory-1" class="panel-collapse collapse show">
-                                    <li><a href="#">Producta1</a></li>
-                                    <li><a href="#">Producta2</a></li>
-                                    <li><a href="#">Producta3</a></li>
-                                    <li><a href="#">Producta4</a></li>
-                                    <li><a href="#">Producta5</a></li>
-                                </ul>
-                            </li>
-                            <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-2">Category
-                                    02
-                                    <i class="fas fa-angle-down"></i></a>
-                                <ul id="shop-catigory-2" class="panel-collapse collapse">
-                                    <li><a href="#">Productb1</a></li>
-                                    <li><a href="#">Productb2</a></li>
-                                    <li><a href="#">Productb3</a></li>
-                                    <li><a href="#">Productb4</a></li>
-                                    <li><a href="#">Productb5</a></li>
-                                </ul>
-                            </li>
-                            <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-3">Category
-                                    03
-                                    <i class="fas fa-angle-down"></i></a>
-                                <ul id="shop-catigory-3" class="panel-collapse collapse">
-                                    <li><a href=Producta1 Tea</a> </li> <li><a href="#">Productc1</a></li>
-                                    <li><a href="#">Productc2</a></li>
-                                    <li><a href="#">Productc3</a></li>
-                                    <li><a href="#">Productc4</a></li>
-                                </ul>
-                            </li>
-                            <li> <a href="#">Productd1</a> </li>
-                            <li> <a href="#">Productd2</a></li>
-                            <li> <a href="#">Productd3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="shop-price-filter mt-40 shop-sidebar-border pt-35">
-                    <h4 class="shop-sidebar-title">Price Filter</h4>
-                    <div class="price_filter mt-25">
-                        <span>Range: $100 - 1.300.</span>
-                        <div id="slider-range"></div>
-                        <div class="price_slider_amount">
-                            <div class="label-input">
-                                <input type="text" id="amount" name="price" placeholder="Add Your Price" />
-                            </div>
-                            <button type="button">Filter</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-                    <h4 class="shop-sidebar-title">By Brand</h4>
-                    <div class="sidebar-list-style mt-20">
-                        <ul>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">SIjui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                            <li><input type="checkbox"><a href="#">Sijui </a></li>
-                        </ul>
-                    </div>
-                </div>
 
-                <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-                    <h4 class="shop-sidebar-title">Compare Products</h4>
-                    <div class="compare-product">
-                        <p>You have no item to compare. </p>
-                        <div class="compare-product-btn">
-                            <span>Clear all </span>
-                            <a href="#">Compare <i class="fa fa-check"></i></a>
+            <div class="col-lg-3">
+                <div class="shop-sidebar-wrapper gray-bg-7 shop-sidebar-mrg">
+                    <div class="shop-widget">
+                        <h4 class="shop-sidebar-title">Shop By Categories</h4>
+                        <div class="shop-catigory">
+                            <ul id="faq">
+                                <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-1">Category
+                                        01
+                                        <i class="fas fa-angle-down"></i></a>
+                                    <ul id="shop-catigory-1" class="panel-collapse collapse show">
+                                        <li><a href="#">Producta1</a></li>
+                                        <li><a href="#">Producta2</a></li>
+                                        <li><a href="#">Producta3</a></li>
+                                        <li><a href="#">Producta4</a></li>
+                                        <li><a href="#">Producta5</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-2">Category
+                                        02
+                                        <i class="fas fa-angle-down"></i></a>
+                                    <ul id="shop-catigory-2" class="panel-collapse collapse">
+                                        <li><a href="#">Productb1</a></li>
+                                        <li><a href="#">Productb2</a></li>
+                                        <li><a href="#">Productb3</a></li>
+                                        <li><a href="#">Productb4</a></li>
+                                        <li><a href="#">Productb5</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a data-toggle="collapse" data-parent="#faq" href="#shop-catigory-3">Category
+                                        03
+                                        <i class="fas fa-angle-down"></i></a>
+                                    <ul id="shop-catigory-3" class="panel-collapse collapse">
+                                        <li><a href=Producta1 Tea</a> </li> <li><a href="#">Productc1</a></li>
+                                        <li><a href="#">Productc2</a></li>
+                                        <li><a href="#">Productc3</a></li>
+                                        <li><a href="#">Productc4</a></li>
+                                    </ul>
+                                </li>
+                                <li> <a href="#">Productd1</a> </li>
+                                <li> <a href="#">Productd2</a></li>
+                                <li> <a href="#">Productd3</a></li>
+                            </ul>
                         </div>
                     </div>
-                </div>
-                <div class="shop-widget mt-40 shop-sidebar-border pt-35">
-                    <h4 class="shop-sidebar-title">Popular Tags</h4>
-                    <div class="shop-tags mt-25">
-                        <ul>
-                            <li><a href="#">Painkiller</a></li>
-                            <li><a href="#">Anti-histermine</a></li>
-                            <li><a href="#">Creams</a></li>
-                            <li><a href="#">Pakinsons</a></li>
-                            <li><a href="#">Cough </a></li>
-                            <li><a href="#">Special</a></li>
-                        </ul>
+                    <div class="shop-price-filter mt-40 shop-sidebar-border pt-35">
+                        <h4 class="shop-sidebar-title">Price Filter</h4>
+                        <div class="price_filter mt-25">
+                            <span>Range: $100 - 1.300.</span>
+                            <div id="slider-range"></div>
+                            <div class="price_slider_amount">
+                                <div class="label-input">
+                                    <input type="text" id="amount" name="price" placeholder="Add Your Price" />
+                                </div>
+                                <button type="button">Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+                        <h4 class="shop-sidebar-title">By Brand</h4>
+                        <div class="sidebar-list-style mt-20">
+                            <ul>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">SIjui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                                <li><input type="checkbox"><a href="#">Sijui </a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+                        <h4 class="shop-sidebar-title">Compare Products</h4>
+                        <div class="compare-product">
+                            <p>You have no item to compare. </p>
+                            <div class="compare-product-btn">
+                                <span>Clear all </span>
+                                <a href="#">Compare <i class="fa fa-check"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="shop-widget mt-40 shop-sidebar-border pt-35">
+                        <h4 class="shop-sidebar-title">Popular Tags</h4>
+                        <div class="shop-tags mt-25">
+                            <ul>
+                                <li><a href="#">Painkiller</a></li>
+                                <li><a href="#">Anti-histermine</a></li>
+                                <li><a href="#">Creams</a></li>
+                                <li><a href="#">Pakinsons</a></li>
+                                <li><a href="#">Cough </a></li>
+                                <li><a href="#">Special</a></li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -273,13 +277,13 @@
                     </div>
                     <div class="col-md-7 col-sm-7 col-xs-12">
                         <div class="modal-pro-content">
-                            <!-- {% for prod in product %}
+                            {% if product %}
                             <h3>{{product.name}}</h3>
                             <div class="product-price-wrapper">
-                                <span class="product-price-old">KSH{{prod.discountedprice}} </span>
-                                <span>KSH{{prod.price}}</span>
+                                <span class="product-price-old">KSH{{product.discountedprice}} </span>
+                                <span>KSH{{product.price}}</span>
                             </div>
-                            <article>{{prod.description}}</article>
+                            <article>{{product.description}}</article>
                             <div class="quick-view-select">
                                 <div class="select-option-part">
                                     <label>Size*</label>
@@ -307,7 +311,7 @@
                                 <button class="btn tbn-outline-dark">Add to cart</button>
                             </div>
                             <span><i class="fa fa-check"></i> In stock</span>
-                            {% endfor %} -->
+                            {% endif %}
                         </div>
                     </div>
                 </div>

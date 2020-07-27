@@ -144,6 +144,9 @@ def updateItem(request):
 
     if orderItem.quantity <= 0:
         orderItem.delete()
+
+    if action == 'delete':
+        orderItem.delete()
     return JsonResponse('Item added', safe=False)
 
 
@@ -200,9 +203,11 @@ def contact(request):
     return render(request, 'contact.html')
 
 
-def product(request):
+def product(request, pk):
+    product = Product.objects.get(pk=pk)
+    context = {'product': product}
 
-    return render(request, 'product_details.html')
+    return render(request, 'product_details.html', context)
 
 
 def my_account(request):

@@ -61,7 +61,8 @@
                                     <td class="product-subtotal">KSH: {{item.get_total}}</td>
                                     <td class="product-remove">
 
-                                        <a href="#"><i class="fa fa-times"></i></a>
+                                        <a data-product="{{item.product.id}}" class="update-cart"
+                                            data-action="delete"><i class="fa fa-times "></i></a>
                                     </td>
                                 </tr>
                                 {% endfor %}
@@ -72,11 +73,15 @@
                         <div class="col-lg-12">
                             <div class="cart-shiping-update-wrapper">
                                 <div class="cart-shiping-update">
-                                    <a href="{% url 'shop' %}">Continue Shopping</a>
+                                    <a href="{% url 'shop' %}">
+                                        <ion-icon name="arrow-back-outline"></ion-icon> Continue
+                                        Shopping
+                                    </a>
                                 </div>
                                 <div class="cart-clear">
 
-                                    <a href="#">Clear Shopping Cart</a>
+                                    <a data-product="{{item.product.id}}" class="update-cart" data-action="clear">Clear
+                                        Shopping Cart</a>
                                 </div>
                             </div>
                         </div>
